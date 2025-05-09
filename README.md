@@ -14,4 +14,4 @@ Also has a feature that allows you to shorten your link with tinyurl api
 
 Download the source code or archive from the release tab and put the folder from the archive in the folder with the other plugins.
 
-The usuall path to the plugin foilder is: `%appdata%\FlowLauncher\Plugins\`
+The usuall path to the plugin folder is: `%appdata%\FlowLauncher\Plugins\`
