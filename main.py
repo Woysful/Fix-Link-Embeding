@@ -5,8 +5,8 @@ sys.path.append(parent_folder_path)
 sys.path.append(os.path.join(parent_folder_path, 'lib'))
 sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 
-import pyperclip, requests, winsound
 from flowlauncher import FlowLauncher
+from utils import run
 
 class LinkFix(FlowLauncher):
     def query(self, query):   
@@ -44,29 +44,8 @@ class LinkFix(FlowLauncher):
         ]
         return buttons
 
-    def run_fix(self, mode):
-        def tinyLink(str):
-            api_url = f"https://tinyurl.com/api-create.php?url={str}"
-            response = requests.get(api_url)
-            return response.text
-
-        MyLink = pyperclip.paste()
-
-        Fixed_Link = MyLink.replace("twitter.com", "vxtwitter.com").replace("x.com", "vxtwitter.com").replace("bsky.app", "r.bskyx.app").replace("instagram.com", "ddinstagram.com")
-
-        if mode == "short":
-            shortlink = tinyLink(Fixed_Link)
-            pyperclip.copy(shortlink)
-        elif mode == "long":
-            pyperclip.copy(Fixed_Link)
-        elif mode == "tiny":
-            MyLink = tinyLink(MyLink)
-            pyperclip.copy(MyLink)
-        else:
-            sys.exit(1)
-
-        winsound.PlaySound(r'.\sound\done.wav', winsound.SND_FILENAME)
-        sys.exit(1)
+    def run_fix(self, arg):
+        run(arg)
 
 if __name__ == "__main__":
     LinkFix()
