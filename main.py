@@ -12,9 +12,10 @@ class LinkFix(FlowLauncher):
     def query(self, query):   
         buttons = [
             {
-                "Title": "Fixed Link | Tiny",
-                "SubTitle": "Fix + Makes your link tiny (it could take a few seconds)",
+                "Title": "Fixed Tiny Link",
+                "SubTitle": "it could take a few seconds",
                 "IcoPath": "Images\\FixedTiny.png",
+                "Score": 100000,
                 "JsonRPCAction": {
                     "method": "run_fix",
                     "parameters": ["short"],
@@ -25,6 +26,7 @@ class LinkFix(FlowLauncher):
                 "Title": "Fixed Link",
                 "SubTitle": "Fixes your link",
                 "IcoPath": "Images\\Fixed.png",
+                "Score": 50000,
                 "JsonRPCAction": {
                     "method": "run_fix",
                     "parameters": ["long"],
@@ -33,8 +35,9 @@ class LinkFix(FlowLauncher):
             },
             {
                 "Title": "Tiny Link",
-                "SubTitle": "Just makes your link tiny (it could take a few seconds)",
+                "SubTitle": "it could take a few seconds",
                 "IcoPath": "Images\\TinyLink.png",
+                "Score": 0,
                 "JsonRPCAction": {
                     "method": "run_fix",
                     "parameters": ["tiny"],
@@ -42,6 +45,7 @@ class LinkFix(FlowLauncher):
                 }
             }
         ]
+
         return buttons
 
     def run_fix(self, arg):

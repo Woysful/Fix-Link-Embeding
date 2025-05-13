@@ -4,7 +4,7 @@
   "Name": "Fix Link",
   "Description": "Fixes twitter/instagram/bluesky links for good media embeding (ex: x.com -> vxtwitter.com)",
   "Author": "woysful",
-  "Version": "2.0.0",
+  "Version": "2.0.1",
   "Language": "python",
   "Website": "https://github.com/Woysful/Fix-Link-Embeding",
   "IcoPath": "Images\\icon.png",
