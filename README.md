@@ -15,6 +15,6 @@ Also has a feature that allows you to shorten your link with tinyurl api
 
 ## Installation
 
-[Download](https://github.com/Woysful/Fix-Link-Embeding/releases/latest/download/Fix-Link-Embeding.zip) the archive from the release tab or the source code and put the folder from the archive in the folder with the other plugins.
+[Download](https://github.com/Woysful/Fix-Link-Embeding/releases/latest/download/Fix-Link-Embeding.zip) the archive from the release tab or source code and place the folder from the archive in the folder with other plugins.
 
 The usuall path to the plugin folder is: `%appdata%\FlowLauncher\Plugins\`
