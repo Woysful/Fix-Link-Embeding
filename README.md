@@ -1,7 +1,7 @@
 ## URL fixer | FlowLauncher plugin
 It's a plugin that edits the text on the clipboard, which allows you to get links to media with the fixed embed.
 
-![](https://github.com/user-attachments/assets/1e47769f-95ee-4481-b449-9300bbdcf379)
+![](https://github.com/user-attachments/assets/8d5cbaec-2157-4301-b505-b596907320a1)
 ## Features
 Supports 3 type of links (let me know if you wanna see any other)
 
