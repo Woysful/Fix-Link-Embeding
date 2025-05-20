@@ -1,0 +1,7 @@
+body:
+  - type: checkbox
+    attributes:
+      name: sound
+      label: Sound notify
+      description: Sound notification when link is ready
+      defaultValue: 'false'

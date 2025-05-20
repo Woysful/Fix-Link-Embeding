@@ -1,4 +1,15 @@
-import pyperclip, requests, winsound, sys
+import pyperclip, requests, winsound, sys, os, json
+class config():
+    def load_settings(settings_path = os.path.expandvars(r'%APPDATA%\FlowLauncher\Settings\Plugins\Fix Link\settings.json')):
+        try:
+            with open(settings_path, "r", encoding="utf-8") as f:
+                config = json.load(f)
+            return config
+        except Exception as e:
+            return {}
+    
+    config_full     = load_settings()
+    sound_notify    = config_full.get("sound", True)
 
 def tinyLink(str):
     api_url = f"https://tinyurl.com/api-create.php?url={str}"
@@ -33,6 +44,7 @@ def run(arg):
             pyperclip.copy(MyLink)
         case _:
             sys.exit(1)
-
-    winsound.PlaySound(r'.\sound\done.wav', winsound.SND_FILENAME)
+    
+    if config.sound_notify == True:
+        winsound.PlaySound(r'.\sound\done.wav', winsound.SND_FILENAME)
     sys.exit(1)
