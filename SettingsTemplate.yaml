@@ -1,7 +1,16 @@
 body:
+  - type: dropdown
+    attributes:
+      name: api_name
+      label: Service
+      defaultValue: TinyURL
+      options:
+        - TinyURL
+        - CleanURI
+        - Spoo.me
   - type: checkbox
     attributes:
       name: sound
       label: Sound notify
       description: Sound notification when link is ready
-      defaultValue: 'false'
+      defaultValue: 'true'

@@ -1,4 +1,4 @@
-import sys,os
+import sys, os
 
 parent_folder_path = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(parent_folder_path)
@@ -6,50 +6,60 @@ sys.path.append(os.path.join(parent_folder_path, 'lib'))
 sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 
 from flowlauncher import FlowLauncher
-from utils import run
+from utils import run, config
 
-class LinkFix(FlowLauncher):
-    def query(self, query):   
-        buttons = [
-            {
-                "Title": "Fixed Tiny Link",
-                "SubTitle": "it could take a few seconds",
-                "IcoPath": "Images\\FixedTiny.png",
-                "Score": 100000,
-                "JsonRPCAction": {
-                    "method": "run_fix",
-                    "parameters": ["short"],
-                    "dontHideAfterAction": False
+class link_fix(FlowLauncher):
+    def query(self, query): 
+        if not config.url_pattern.match(config.url):
+            bad_link = [
+                {
+                    "Title": "Copy the link first!",
+                    "SubTitle": "it looks like you didn't copy the link",
+                    "IcoPath": "Images\\Warning.png",
                 }
-            },
-            {
-                "Title": "Fixed Link",
-                "SubTitle": "Fixes your link",
-                "IcoPath": "Images\\Fixed.png",
-                "Score": 50000,
-                "JsonRPCAction": {
-                    "method": "run_fix",
-                    "parameters": ["long"],
-                    "dontHideAfterAction": False
-                }
-            },
-            {
-                "Title": "Tiny Link",
-                "SubTitle": "it could take a few seconds",
-                "IcoPath": "Images\\TinyLink.png",
-                "Score": 0,
-                "JsonRPCAction": {
-                    "method": "run_fix",
-                    "parameters": ["tiny"],
-                    "dontHideAfterAction": False
-                }
-            }
-        ]
+            ]
+            return bad_link
 
-        return buttons
+        else:
+            main = [
+                {
+                    "Title": "Fixed Tiny Link",
+                    "SubTitle": "it could take a few seconds",
+                    "IcoPath": "Images\\FixedTiny.png",
+                    "Score": 100000,
+                    "JsonRPCAction": {
+                        "method": "run_fix",
+                        "parameters": ["short"],
+                        "dontHideAfterAction": False
+                    }
+                },
+                {
+                    "Title": "Fixed Link",
+                    "SubTitle": "Fixes your link",
+                    "IcoPath": "Images\\Fixed.png",
+                    "Score": 50000,
+                    "JsonRPCAction": {
+                        "method": "run_fix",
+                        "parameters": ["long"],
+                        "dontHideAfterAction": False
+                    }
+                },
+                {
+                    "Title": "Tiny Link",
+                    "SubTitle": "it could take a few seconds",
+                    "IcoPath": "Images\\TinyLink.png",
+                    "Score": 0,
+                    "JsonRPCAction": {
+                        "method": "run_fix",
+                        "parameters": ["tiny"],
+                        "dontHideAfterAction": False
+                    }
+                }
+            ]
+            return main
 
     def run_fix(self, arg):
         run(arg)
 
 if __name__ == "__main__":
-    LinkFix()
+    link_fix()
