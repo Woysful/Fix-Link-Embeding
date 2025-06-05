@@ -3,13 +3,22 @@ It's a plugin that edits the text on the clipboard, which allows you to get link
 
 ![](https://github.com/user-attachments/assets/8d5cbaec-2157-4301-b505-b596907320a1)
 ## Features
-Supports 3 type of links (let me know if you wanna see any other)
+Supports 10 link types (let me know if you want to see others).
 
-- `x.com -> vxtwitter.com`
-- `bsky.app -> r.bskyx.app`
-- `instagram.com -> ddinstagram.com`
+- `x.com          -> m.fixupx.com`
+- `bsky.app       -> m.fxbsky.app`
+- `instagram.com  -> instagramez.com`
+- `twitch.tv      -> fxtwitch.seria.moe`
+- `tiktok.com     -> vxtiktok.com`
+- `reddit.com     -> redditez.com`
+- `snapchat.com   -> snapchatez.com`
+- `bilibili.com   -> bilibiliez.com`
+- `tumblr.com     -> tpmblr.com`
+- `threads.com    -> fixthreads.net`
 
-Also has a feature that allows you to shorten your link with tinyurl api
+All of these fixes can be found and modified in the `replacements.json` file in the plugin folder
+
+Also has a feature that allows you to shorten your link with `TinyURL / CleanURI / Spoo.me` api
 
 ![](https://github.com/user-attachments/assets/2a213f02-f6ed-42da-b299-7dc37f7646b9)
 
