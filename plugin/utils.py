@@ -1,4 +1,4 @@
-import pyperclip, requests, winsound, sys, os, json, re
+import pyperclip, requests, winsound, sys, os, json, re, tldextract
 from urllib.parse import quote_plus
 
 class config():
@@ -29,6 +29,27 @@ class config():
     r'((http[s]?://)?(www\.)?'
     r'([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}'
     r'(/[^\s]*)?)')
+
+    domain = tldextract.extract(url).domain
+    domain_visual_rep = {
+    "youtu"     : "YouTube",
+    "youtube"   : "YouTube",
+    "x"         : "Twitter",
+    "twitter"   : "Twitter",
+    "bsky"      : "Bluesky",
+    "tumblr"    : "Tumblr",
+    "instagram" : "Instagram",
+    "twitch"    : "Twitch",
+    "reddit"    : "Reddit",
+    "bilibili"  : "BiliBili",
+    "snapchat"  : "Snapchat",
+    "threads"   : "Threads",
+    "vimeo"     : "Vimeo",
+    "tiktok"    : "Tiktok"
+    }
+
+    domain_visual   = domain_visual_rep.get(domain, domain)
+    domain_fix      = replace_full.get(domain + "." + tldextract.extract(url).suffix, "")
 
     sound_notify    = settings_full.get("sound", True)
     api_name        = settings_full.get("api_name", "TinyURL")

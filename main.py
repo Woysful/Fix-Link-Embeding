@@ -24,7 +24,7 @@ class link_fix(FlowLauncher):
             main = [
                 {
                     "Title": "Fixed Tiny Link",
-                    "SubTitle": "it could take a few seconds",
+                    "SubTitle": config.domain_fix + " | " + config.api_name,
                     "IcoPath": "Images\\FixedTiny.png",
                     "Score": 100000,
                     "JsonRPCAction": {
@@ -35,7 +35,7 @@ class link_fix(FlowLauncher):
                 },
                 {
                     "Title": "Fixed Link",
-                    "SubTitle": "Fixes your link",
+                    "SubTitle": config.domain_fix,
                     "IcoPath": "Images\\Fixed.png",
                     "Score": 50000,
                     "JsonRPCAction": {
@@ -45,8 +45,8 @@ class link_fix(FlowLauncher):
                     }
                 },
                 {
-                    "Title": "Tiny Link",
-                    "SubTitle": "it could take a few seconds",
+                    "Title": "Shorten Link",
+                    "SubTitle": config.api_name,
                     "IcoPath": "Images\\TinyLink.png",
                     "Score": 0,
                     "JsonRPCAction": {
