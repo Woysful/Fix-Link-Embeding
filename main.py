@@ -23,7 +23,7 @@ class link_fix(FlowLauncher):
         else:
             main = [
                 {
-                    "Title": "Fixed Shorten Link",
+                    "Title": "Fixed Short Link",
                     "SubTitle": config.domain_fix + " | " + config.api_name,
                     "IcoPath": "Images\\FixedTiny.png",
                     "Score": 100000,
@@ -45,7 +45,7 @@ class link_fix(FlowLauncher):
                     }
                 },
                 {
-                    "Title": "Shorten Link",
+                    "Title": "Short Link",
                     "SubTitle": config.api_name,
                     "IcoPath": "Images\\TinyLink.png",
                     "Score": 0,
