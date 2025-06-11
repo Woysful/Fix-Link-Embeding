@@ -34,7 +34,7 @@ class Config:
 
         self.domain_fix = [self.replace_full.get(self.domain + "." + self.suffix, False), True]
         if not self.domain_fix[0]:
-            self.domain_fix = ["No replacement", False]
+            self.domain_fix = ["No fix replacement", False]
 
     # load settings
     def load_json(self, path_):
