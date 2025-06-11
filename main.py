@@ -6,60 +6,65 @@ sys.path.append(os.path.join(parent_folder_path, 'lib'))
 sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 
 from flowlauncher import FlowLauncher
-from plugin.utils import run, config
 
-class link_fix(FlowLauncher):
-    def query(self, query): 
-        if not config.url_pattern.match(config.url):
-            bad_link = [
-                {
-                    "Title": "Copy the link first!",
-                    "SubTitle": "it looks like you didn't copy the link",
-                    "IcoPath": "Images\\Warning.png",
+class NoLink(FlowLauncher):
+    def query(self, query):
+        return [
+            {
+                "Title": "Copy the link first!",
+                "SubTitle": "it looks like you didn't copy the link",
+                "IcoPath": "Images\\Warning.png",
+            }
+        ]
+    
+class FixLink(FlowLauncher):
+    def query(self, query):
+        return [
+            {
+                "Title": "Fixed Short Link",
+                "SubTitle": config.domain_fix[0] + " | " + config.api_name,
+                "IcoPath": "Images\\FixedTiny.png",
+                "Score": 100000,
+                "JsonRPCAction": {
+                    "method": "run_fix",
+                    "parameters": ["short"],
+                    "dontHideAfterAction": False
                 }
-            ]
-            return bad_link
-
-        else:
-            main = [
-                {
-                    "Title": "Fixed Short Link",
-                    "SubTitle": config.domain_fix + " | " + config.api_name,
-                    "IcoPath": "Images\\FixedTiny.png",
-                    "Score": 100000,
-                    "JsonRPCAction": {
-                        "method": "run_fix",
-                        "parameters": ["short"],
-                        "dontHideAfterAction": False
-                    }
-                },
-                {
-                    "Title": "Fixed Link",
-                    "SubTitle": config.domain_fix,
-                    "IcoPath": "Images\\Fixed.png",
-                    "Score": 50000,
-                    "JsonRPCAction": {
-                        "method": "run_fix",
-                        "parameters": ["long"],
-                        "dontHideAfterAction": False
-                    }
-                },
-                {
-                    "Title": "Short Link",
-                    "SubTitle": config.api_name,
-                    "IcoPath": "Images\\TinyLink.png",
-                    "Score": 0,
-                    "JsonRPCAction": {
-                        "method": "run_fix",
-                        "parameters": ["tiny"],
-                        "dontHideAfterAction": False
-                    }
+            },
+            {
+                "Title": "Fixed Link",
+                "SubTitle": config.domain_fix[0],
+                "IcoPath": "Images\\Fixed.png",
+                "Score": 50000,
+                "JsonRPCAction": {
+                    "method": "run_fix",
+                    "parameters": ["long"],
+                    "dontHideAfterAction": False
                 }
-            ]
-            return main
+            },
+            {
+                "Title": "Short Link",
+                "SubTitle": config.api_name,
+                "IcoPath": "Images\\TinyLink.png",
+                "Score": 0,
+                "JsonRPCAction": {
+                    "method": "run_fix",
+                    "parameters": ["tiny"],
+                    "dontHideAfterAction": False
+                }
+            }
+        ]
 
     def run_fix(self, arg):
-        run(arg)
+        from plugin.utils import run
+        run(arg, config, url)
 
 if __name__ == "__main__":
-    link_fix()
+    from plugin.check import url_valid
+    valid, url = url_valid()
+    if not valid:
+        NoLink()
+    else:
+        from plugin.settings import Config
+        config = Config(url)
+        FixLink()
