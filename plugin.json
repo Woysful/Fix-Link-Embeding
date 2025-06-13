@@ -4,7 +4,7 @@
   "Name": "Fix Link",
   "Description": "Fixes media links for good embeding (ex: x.com -> m.fixupx.com)",
   "Author": "woysful",
-  "Version": "2.2.1",
+  "Version": "2.3.0",
   "Language": "python",
   "Website": "https://github.com/Woysful/Fix-Link-Embeding",
   "IcoPath": "Images\\icon.png",
