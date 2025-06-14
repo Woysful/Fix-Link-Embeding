@@ -5,8 +5,12 @@ from urllib.parse   import urlparse
 class Config:
     def __init__(self, url):
         # getting Flow Launcher user settings
-        self.settings_path      = path.expandvars(r"%APPDATA%\FlowLauncher\Settings\Plugins\Fix Link\settings.json")
+        current_dir = path.dirname(path.abspath(__file__))
+        root_dir    = path.abspath(path.join(current_dir, "..", "..", ".."))
+
+        # settings path
         self.replacements_path  = r".\plugin\replacements.json"
+        self.settings_path      = path.join(root_dir, "Settings", "Plugins", "Media Downloader", "settings.json")
         
         self.settings_full      = self.load_json(self.settings_path)
         self.replace_full       = self.load_json(self.replacements_path)
