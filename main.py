@@ -71,7 +71,7 @@ class FixLink(FlowLauncher, ContextMenu):
                 "Score"     : 0,
                 "JsonRPCAction": {
                     "method"    : "run_fix",
-                    "parameters": ["tiny"],
+                    "parameters": ["short"],
                     "dontHideAfterAction": False
                 }
             }

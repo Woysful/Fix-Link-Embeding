@@ -12,6 +12,7 @@ def sound_msg(status, config: Config):
         sound_file = r'.\sound\done.wav' if status else r'.\sound\warning.wav'
         PlaySound(sound_file, SND_FILENAME)    
 
+# windows notification
 def win_msg(status, type, config: Config):
     if config.msg:
         match type:
@@ -21,7 +22,7 @@ def win_msg(status, type, config: Config):
             case "long":
                 sub = "Fixed link in clipboard!" if status else "Something goes wrong"
                 ico = r"Images\Fixed.png" if status else r"Images\Warning.png"
-            case "tiny":
+            case "short":
                 sub = "Short link in clipboard!" if status else "Something goes wrong"
                 ico = r"Images\TinyLink.png" if status else r"Images\Warning.png"
 
@@ -29,11 +30,11 @@ def win_msg(status, type, config: Config):
         FlowLauncherAPI.show_msg(
             title="Fix Link",
             sub_title=sub,
-            # ico_path=ico - doesn't count custom icon for some reason ¯\_(ツ)_/¯
+            # ico_path=ico - custom icons doesn't work for some reason ¯\_(ツ)_/¯
         )
 
-# making url tiny
-def tiny_url(url, config: Config):
+# making url short
+def short_url(url, config: Config):
     try:
         match config.api_name:
             case "TinyURL"  :
@@ -70,13 +71,13 @@ def run(arg, config: Config, url):
         match arg:
             case "shortfix":
                 if config.domain_fix[1]:
-                    url_short = tiny_url(url_fixed, config)
+                    url_short = short_url(url_fixed, config)
                     copy(url_short)
             case "long":
                 if config.domain_fix[1]:
                     copy(url_fixed)
-            case "tiny":
-                url = tiny_url(url, config)
+            case "short":
+                url = short_url(url, config)
                 copy(url)
             case _:
                 exit(1)
