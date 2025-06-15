@@ -49,7 +49,7 @@ class FixLink(FlowLauncher, ContextMenu):
                 "Score"     : 100000,
                 "JsonRPCAction": {
                     "method"    : "run_fix",
-                    "parameters": ["short"],
+                    "parameters": ["shortfix"],
                     "dontHideAfterAction": False
                 }
             },

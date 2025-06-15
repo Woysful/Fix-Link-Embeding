@@ -16,6 +16,7 @@ class Config:
         self.replace_full       = self.load_json(self.replacements_path)
 
         self.sound              = self.settings_full.get("sound", True)
+        self.msg                = self.settings_full.get("win_msg", True)
         self.api_name           = self.settings_full.get("api_name", "TinyURL")
 
         self.domain, self.suffix = self.get_domain_and_suffix(url)

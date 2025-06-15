@@ -14,3 +14,9 @@ body:
       label: Sound notify
       description: Sound notification when link is ready
       defaultValue: 'true'
+  - type: checkbox
+    attributes:
+      name: win_msg
+      label: windows message
+      description: Show a Windows message when link is ready
+      defaultValue: 'true'
