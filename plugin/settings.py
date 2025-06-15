@@ -10,7 +10,7 @@ class Config:
 
         # settings path
         self.replacements_path  = r".\plugin\replacements.json"
-        self.settings_path      = path.join(root_dir, "Settings", "Plugins", "Media Downloader", "settings.json")
+        self.settings_path      = path.join(root_dir, "Settings", "Plugins", "Fix Link", "settings.json")
         
         self.settings_full      = self.load_json(self.settings_path)
         self.replace_full       = self.load_json(self.replacements_path)
