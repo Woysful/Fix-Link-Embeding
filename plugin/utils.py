@@ -16,17 +16,14 @@ def win_msg(status, type, config: Config):
     if config.msg:
         match type:
             case "shortfix":
-                sub = "Short fixed link in clipboard!" if status else "Something goes wrong ¯\_(ツ)_/¯"
+                sub = "Short fixed link in clipboard!" if status else "Something goes wrong"
                 ico = r"Images\FixedTiny.png" if status else r"Images\Warning.png"
             case "long":
-                sub = "Fixed link in clipboard!" if status else "Something goes wrong ¯\_(ツ)_/¯"
+                sub = "Fixed link in clipboard!" if status else "Something goes wrong"
                 ico = r"Images\Fixed.png" if status else r"Images\Warning.png"
             case "tiny":
-                sub = "Short link in clipboard!" if status else "Something goes wrong ¯\_(ツ)_/¯"
+                sub = "Short link in clipboard!" if status else "Something goes wrong"
                 ico = r"Images\TinyLink.png" if status else r"Images\Warning.png"
-            case _:
-                sub = "Something goes wrong ¯\_(ツ)_/¯"
-                ico = r"Images\icon.png"
 
         from flowlauncher import FlowLauncherAPI
         FlowLauncherAPI.show_msg(
