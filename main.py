@@ -12,7 +12,7 @@ class ContextMenu:
         return [
             {
                 "Title"     : "Replacements list",
-                "SubTitle"  : "Open config.JSON",
+                "SubTitle"  : "Open replacements.JSON",
                 "IcoPath"   : "Images\\config.png",
                 "Score"     : 10000,
                 "JsonRPCAction": {
