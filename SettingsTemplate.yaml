@@ -17,6 +17,6 @@ body:
   - type: checkbox
     attributes:
       name: win_msg
-      label: windows message
+      label: Windows message
       description: Show a Windows message when link is ready
       defaultValue: 'true'
